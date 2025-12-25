@@ -2,6 +2,9 @@
 
 :root {
   --cyan: #00bcd4;
+  --dark-cyan: #0f766e;
+  --light-gray: #f9fafb;
+  --gray: #f2f4f5;
 }
 
 body {
@@ -26,16 +29,25 @@ nav:not(.navbar) {
 .navbar {
   position: sticky;
   top: 0;
-  background: #0f766e;
+  background: var(--dark-cyan);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 5px 18px;
+  font-size: 0.9em;
   z-index: 1000;
 }
 
 .logo {
   color: white;
+  font-size: 1.3em;
+  font-weight: 700;
+  padding-left: 16px;
+}
+
+.navbar .btn {
+  padding: 4px 10px;
+  font-size: 0.8em;
 }
 
 .btn {
@@ -51,11 +63,26 @@ nav:not(.navbar) {
 
 .hero {
   height: 90vh;
-  background: url("../assets/docters_standing.jpg") center/cover no-repeat;
   position: relative;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
 }
 
 .hero-overlay {
+  position: relative;
+  z-index: 1;
   background: rgba(0,0,0,0.55);
   height: 100%;
   color: white;
@@ -71,19 +98,12 @@ nav:not(.navbar) {
   font-size: 36px;
 }
 
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
-  gap: 20px;
-  padding: 40px;
-  justify-content: center;
+/* Section background alternation */
+section:nth-of-type(odd) {
+  background: #fff;
 }
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #ddd;
+section:nth-of-type(even) {
+  background: var(--gray);
 }
 
 .steps {
@@ -97,20 +117,38 @@ nav:not(.navbar) {
 }
 
 .reasons {
-  background: #f9fafb;
   padding: 60px 20px;
 }
 
 .reason-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
 .reason {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
+  background: #ffffff;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.reason:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.reason h3 {
+  margin-bottom: 10px;
+  color: var(--dark-cyan);
+}
+
+.reason p {
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.5;
 }
 
 .faq {
@@ -143,6 +181,8 @@ nav:not(.navbar) {
   display: none;
   padding-bottom: 15px;
   color: #555;
+  line-height: 1.6;
+  font-size: 0.95em;
 }
 
 .faq-item.open .faq-answer {
@@ -152,9 +192,14 @@ nav:not(.navbar) {
 .footer {
   background: #111;
   color: #ccc;
-  padding: 40px 20px;
+  padding: 40px 0;
   text-align: center;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  padding-bottom: 16px;
 }
+
 
 .socials a {
   margin: 0 10px;
