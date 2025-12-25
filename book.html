@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/auth.js"></script>
+  <script src="js/booking.js"></script>
+</head>
+<body onload="protect(); loadBooking()">
+  <div class="card">
+    <h2 id="docName"></h2>
+    <label>Hours:</label>
+    <select id="hours" onchange="calcTotal()">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    <p>Total: <span id="total"></span> JOD</p>
+    <a class="btn" href="payment.html">Continue</a>
+  </div>
+</body>
+</html>
