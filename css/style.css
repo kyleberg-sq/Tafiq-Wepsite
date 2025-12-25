@@ -1,13 +1,21 @@
-body {
-  font-family: Arial;
-  background: #f7fafa;
-}
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
 
 :root {
   --cyan: #00bcd4;
 }
 
-nav {
+body {
+  font-family: 'Cairo', Arial, sans-serif;
+  background: #f7fafa;
+  direction: rtl;
+  margin: 0;
+}
+
+h1, h2, h3, p {
+  line-height: 1.7;
+}
+
+nav:not(.navbar) {
   display: flex;
   justify-content: space-between;
   padding: 15px;
@@ -15,35 +23,36 @@ nav {
   color: white;
 }
 
-.container, .center {
+.navbar {
+  position: sticky;
+  top: 0;
+  background: #0f766e;
   display: flex;
-  justify-content: center;
-  margin-top: 60px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  z-index: 1000;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
-  gap: 20px;
-  justify-content: center;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #ddd;
+.logo {
+  color: white;
 }
 
 .btn {
   display: inline-block;
-  margin-top: 10px;
-  padding: 10px;
+  padding: 10px 16px;
   background: var(--cyan);
   color: white;
   text-decoration: none;
   border: none;
   cursor: pointer;
+  border-radius: 4px;
+}
+
+.hero {
+  height: 90vh;
+  background: url("../assets/docters_standing.jpg") center/cover no-repeat;
+  position: relative;
 }
 
 .hero-overlay {
@@ -70,36 +79,18 @@ nav {
   justify-content: center;
 }
 
-.cta {
-  text-align: center;
-  padding: 40px;
-}
-
-footer {
-  text-align: center;
-  padding: 15px;
-  background: #eee;
-  margin-top: 40px;
-}
-
-.navbar {
-  position: sticky;
-  top: 0;
-  background: #0f766e;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  z-index: 1000;
-}
-.logo {
-  color: white;
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ddd;
 }
 
 .steps {
   padding: 60px 20px;
   text-align: center;
 }
+
 .step {
   max-width: 600px;
   margin: 30px auto;
@@ -109,11 +100,13 @@ footer {
   background: #f9fafb;
   padding: 60px 20px;
 }
+
 .reason-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
+
 .reason {
   background: white;
   padding: 20px;
@@ -123,28 +116,35 @@ footer {
 .faq {
   padding: 60px 20px;
 }
+
 .faq-item {
   border-bottom: 1px solid #ddd;
   margin-bottom: 10px;
 }
+
 .faq-question {
   display: flex;
   justify-content: space-between;
+  flex-direction: row-reverse;
   cursor: pointer;
   padding: 15px 0;
   font-weight: bold;
 }
+
 .arrow {
   transition: transform 0.3s;
 }
+
 .faq-item.open .arrow {
   transform: rotate(180deg);
 }
+
 .faq-answer {
   display: none;
   padding-bottom: 15px;
   color: #555;
 }
+
 .faq-item.open .faq-answer {
   display: block;
 }
@@ -155,10 +155,13 @@ footer {
   padding: 40px 20px;
   text-align: center;
 }
+
 .socials a {
   margin: 0 10px;
   color: #ccc;
+  text-decoration: none;
 }
+
 .designer {
   margin-top: 10px;
   font-size: 14px;
