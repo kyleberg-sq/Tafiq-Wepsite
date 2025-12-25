@@ -2,47 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>PhysioCare | Home Physical Therapy</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Physical Therapy</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-100 text-gray-900">
 
-<nav>
-  <h3>PhysioCare</h3>
-  <a class="btn" href="login.html">Login</a>
-</nav>
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">PhysioAtHome</h1>
+      <nav class="space-x-4">
+        <a href="#services" class="hover:underline">Services</a>
+        <a href="#order" class="hover:underline">Order</a>
+      </nav>
+    </div>
+  </header>
 
-<header class="hero">
-  <h1>Professional Physical Therapy at Your Home</h1>
-  <p>Book licensed physical therapists by the hour, directly to your door.</p>
-  <a class="btn" href="login.html">Get Started</a>
-</header>
+  <section class="bg-blue-600 text-white py-20">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-4">Physical Therapy at Your Doorstep</h2>
+      <p class="text-lg mb-6">Licensed therapists. Home visits. Simple booking.</p>
+      <a href="#order" class="bg-white text-blue-600 px-6 py-3 rounded font-semibold">Book Now</a>
+    </div>
+  </section>
 
-<section class="features">
-  <div class="card">
-    <h3>Choose Your Therapist</h3>
-    <p>Select from certified professionals based on specialty.</p>
-  </div>
+  <section id="services" class="py-16">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+      <div class="bg-white p-6 rounded shadow">
+        <h3 class="text-xl font-bold mb-2">Post-Injury Rehab</h3>
+        <p>Personal recovery programs at home.</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow">
+        <h3 class="text-xl font-bold mb-2">Elderly Care</h3>
+        <p>Safe and guided movement therapy.</p>
+      </div>
+      <div class="bg-white p-6 rounded shadow">
+        <h3 class="text-xl font-bold mb-2">Sports Therapy</h3>
+        <p>Strength and mobility restoration.</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="card">
-    <h3>Hourly Booking</h3>
-    <p>Flexible booking by the hour with transparent pricing.</p>
-  </div>
+  <section id="order" class="py-16 bg-white">
+    <div class="max-w-xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-6 text-center">Request a Therapist</h2>
 
-  <div class="card">
-    <h3>Pay Your Way</h3>
-    <p>Cash on visit or secure card payment (demo).</p>
-  </div>
-</section>
+      <form id="orderForm" class="space-y-4">
+        <input required class="w-full border p-3 rounded" placeholder="Full Name">
+        <input required class="w-full border p-3 rounded" placeholder="Phone Number">
+        <input required class="w-full border p-3 rounded" placeholder="Address">
+        <select class="w-full border p-3 rounded">
+          <option>Post-Injury Rehab</option>
+          <option>Elderly Care</option>
+          <option>Sports Therapy</option>
+        </select>
+        <button class="w-full bg-blue-600 text-white py-3 rounded font-semibold">Submit Order</button>
+      </form>
 
-<section class="cta">
-  <h2>Start Your Recovery Today</h2>
-  <a class="btn" href="login.html">Login to Book</a>
-</section>
+      <p id="success" class="hidden text-green-600 text-center mt-4 font-semibold">
+        Order submitted successfully
+      </p>
+    </div>
+  </section>
 
-<footer>
-  <p>© 2025 PhysioCare — Demo Prototype</p>
-</footer>
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    © 2025 PhysioAtHome
+  </footer>
+
+  <script>
+    const form = document.getElementById("orderForm")
+    const success = document.getElementById("success")
+
+    form.addEventListener("submit", e => {
+      e.preventDefault()
+      success.classList.remove("hidden")
+      form.reset()
+    })
+  </script>
 
 </body>
 </html>
