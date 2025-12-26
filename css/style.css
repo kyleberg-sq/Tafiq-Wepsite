@@ -16,21 +16,10 @@ body {
   line-height: 1.75;
 }
 
-h1 {
-  font-size: 34px;
-}
-
-h2 {
-  font-size: 26px;
-}
-
-h3 {
-  font-size: 20px;
-}
-
-p {
-  font-size: 16px;
-}
+h1 { font-size: 34px; }
+h2 { font-size: 26px; }
+h3 { font-size: 20px; }
+p  { font-size: 16px; }
 
 nav:not(.navbar) {
   display: flex;
@@ -48,13 +37,13 @@ nav:not(.navbar) {
   justify-content: space-between;
   align-items: center;
   padding: 8px 20px;
-  font-size: 1em; /* bigger navbar font */
+  font-size: 1em;
   z-index: 1000;
 }
 
 .logo {
   color: white;
-  font-size: 1.6em; /* bigger logo */
+  font-size: 1.6em;
   font-weight: 700;
   padding-left: 16px;
 }
@@ -66,7 +55,7 @@ nav:not(.navbar) {
 
 .btn {
   display: inline-block;
-  padding: 12px 22px; /* bigger button */
+  padding: 12px 22px;
   background: var(--cyan);
   color: white;
   text-decoration: none;
@@ -80,13 +69,12 @@ nav:not(.navbar) {
   position: relative;
   height: 90vh;
   overflow: hidden;
-  background: black; 
+  background: black;
 }
 
 .hero-video {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -95,10 +83,7 @@ nav:not(.navbar) {
 
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -109,22 +94,11 @@ nav:not(.navbar) {
   padding: 0 20px;
 }
 
-.hero h1 {
-  font-size: 42px; /* bigger hero title */
-}
+.hero h1 { font-size: 42px; }
+.hero p  { font-size: 20px; margin: 12px 0; }
 
-.hero p {
-  font-size: 20px; /* bigger subtitle */
-  margin: 12px 0;
-}
-
-/* Section background alternation */
-section:nth-of-type(odd) {
-  background: #fff;
-}
-section:nth-of-type(even) {
-  background: var(--gray);
-}
+section:nth-of-type(odd) { background: #fff; }
+section:nth-of-type(even) { background: var(--gray); }
 
 .steps {
   padding: 70px 20px;
@@ -134,7 +108,7 @@ section:nth-of-type(even) {
 .step {
   max-width: 650px;
   margin: 35px auto;
-  font-size: 18px; /* bigger step text */
+  font-size: 18px;
 }
 
 .reasons {
@@ -148,27 +122,20 @@ section:nth-of-type(even) {
 }
 
 .reason {
-  background: #ffffff;
+  background: white;
   padding: 30px 25px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
 }
 
-.reason:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-}
-
 .reason h3 {
-  margin-bottom: 12px;
   color: var(--dark-cyan);
   font-size: 22px;
+  margin-bottom: 12px;
 }
 
 .reason p {
-  color: #555;
   font-size: 17px;
   line-height: 1.5;
 }
@@ -177,121 +144,55 @@ section:nth-of-type(even) {
   padding: 70px 20px;
 }
 
-.faq-item {
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 12px;
-}
-
 .faq-question {
   display: flex;
   justify-content: space-between;
   flex-direction: row-reverse;
   cursor: pointer;
   padding: 16px 0;
+  font-size: 18px;
   font-weight: bold;
-  font-size: 18px; /* bigger FAQ questions */
-}
-
-.arrow {
-  transition: transform 0.3s;
-}
-
-.faq-item.open .arrow {
-  transform: rotate(180deg);
 }
 
 .faq-answer {
   display: none;
+  font-size: 17px;
   padding-bottom: 15px;
-  color: #555;
-  line-height: 1.7;
-  font-size: 17px; /* bigger FAQ answers */
 }
 
-.faq-item.open .faq-answer {
-  display: block;
-}
+.faq-item.open .faq-answer { display: block; }
 
 .footer {
   background: #111;
   color: #ccc;
-  padding: 50px 0;
+  padding: 50px 0 16px;
   text-align: center;
-  width: 100%;
-  margin: 0;
-  box-sizing: border-box;
-  padding-bottom: 16px;
   font-size: 16px;
 }
 
-.socials a {
-  margin: 0 12px;
-  color: #ccc;
-  text-decoration: none;
-}
-
-.designer {
-  margin-top: 12px;
-  font-size: 15px;
-}
-
-/* Responsive for mobile screens */
-@media (max-width: 900px) {
-  .reason-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero h1 {
-    font-size: 34px;
-  }
-
-  .hero p {
-    font-size: 18px;
-  }
-
-  .steps, .reasons, .faq {
-    padding: 50px 15px;
-  }
-}
-/* tablet */
+/* ================= TABLET ================= */
 @media (max-width: 1024px) {
-  body {
-    font-size: 17px;
-  }
+  body { font-size: 17px; }
 
-  h1 {
-    font-size: 32px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; }
 
   .reason-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-/* phone */
+
+/* ================= PHONE ================= */
 @media (max-width: 600px) {
-  body {
-    font-size: 18px;
-  }
+  body { font-size: 18px; }
 
-  h1 {
-    font-size: 30px;
-  }
+  h1 { font-size: 30px; }
+  h2 { font-size: 22px; }
+  h3 { font-size: 19px; }
+  p  { font-size: 17px; }
 
-  h2 {
-    font-size: 22px;
-  }
-
-  h3 {
-    font-size: 19px;
-  }
-
-  p {
-    font-size: 17px;
-  }
+  .hero h1 { font-size: 32px; }
+  .hero p  { font-size: 19px; }
 
   .reason-grid {
     grid-template-columns: 1fr;
@@ -310,19 +211,20 @@ section:nth-of-type(even) {
     font-size: 1.5em;
   }
 }
-/* PC */
+
+/* ================= PC NAVBAR ONLY ================= */
 @media (min-width: 1025px) {
   .navbar {
-    padding: 4px 16px;
-    font-size: 0.82em;
+    padding: 5px 18px;
+    font-size: 0.9em;
   }
 
   .logo {
-    font-size: 1.15em;
+    font-size: 1.25em;
   }
 
   .navbar .btn {
-    padding: 4px 9px;
-    font-size: 0.82em;
+    padding: 5px 11px;
+    font-size: 0.88em;
   }
 }
