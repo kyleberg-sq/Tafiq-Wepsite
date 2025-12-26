@@ -12,12 +12,24 @@ body {
   background: #f7fafa;
   direction: rtl;
   margin: 0;
-  font-size: 18px; /* bigger base font for mobile */
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.75;
 }
 
-h1, h2, h3, p {
-  line-height: 1.7;
+h1 {
+  font-size: 34px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 16px;
 }
 
 nav:not(.navbar) {
@@ -132,7 +144,7 @@ section:nth-of-type(even) {
 .reason-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  gap: 24px;
 }
 
 .reason {
@@ -239,5 +251,78 @@ section:nth-of-type(even) {
 
   .steps, .reasons, .faq {
     padding: 50px 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 17px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .reason-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 19px;
+  }
+
+  p {
+    font-size: 17px;
+  }
+
+  .reason-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    font-size: 17px;
+    padding: 14px 24px;
+  }
+
+  .navbar {
+    padding: 10px 16px;
+  }
+
+  .logo {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 1025px) {
+  .navbar {
+    padding: 3px 14px;
+    font-size: 0.75em;
+  }
+
+  .logo {
+    font-size: 1.05em;
+  }
+
+  .navbar .btn {
+    padding: 3px 8px;
+    font-size: 0.75em;
   }
 }
