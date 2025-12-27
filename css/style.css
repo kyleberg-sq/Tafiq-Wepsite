@@ -165,7 +165,7 @@ section:nth-of-type(even) { background: var(--gray); }
 .footer {
   background: #111;
   color: #ccc;
-  padding: 50px 0 16px;
+  padding: 40px 0 16px;
   text-align: center;
   font-size: 16px;
 }
@@ -227,4 +227,81 @@ section:nth-of-type(even) { background: var(--gray); }
     padding: 5px 11px;
     font-size: 0.88em;
   }
+}
+
+
+/*Home styles*/
+.dashboard-hero {
+  height: 50vh;
+  background: linear-gradient(135deg, var(--dark-cyan), var(--cyan));
+}
+
+.appointments {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.appointments-list {
+  max-width: 900px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.appointment-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  text-align: right;
+}
+
+.appointment-card h3 {
+  color: var(--dark-cyan);
+  margin-bottom: 10px;
+}
+
+.appointment-card p {
+  font-size: 16px;
+}
+
+.empty {
+  font-size: 18px;
+  color: #777;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 20px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.stat {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.stat h3 {
+  font-size: 32px;
+  color: var(--dark-cyan);
+}
+
+.quick-actions {
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tip {
+  background: var(--cyan);
+  color: rgb(0, 0, 0);
+  padding: 50px 20px;
+  text-align: center;
 }

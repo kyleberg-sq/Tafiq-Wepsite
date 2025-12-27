@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<script>
+  if (localStorage.getItem('isLoggedIn') === 'true') {
+    window.location.href = 'home.html'
+  }
+</script>
+
 <nav class="navbar">
   <h3 class="logo">Khatwa</h3>
   <a class="btn" href="index.html">الرئيسية</a>
@@ -16,14 +22,25 @@
 <div class="form-page">
   <div class="form-card">
     <h1>تسجيل الدخول</h1>
-    <form action="doctors.html" method="get">
+
+    <form onsubmit="fakeLogin(event)">
       <input type="email" placeholder="البريد الإلكتروني" required>
       <input type="password" placeholder="كلمة المرور" required>
       <button type="submit">تسجيل الدخول</button>
     </form>
+
     <p>ليس لديك حساب؟ <a href="register.html">إنشاء حساب</a></p>
   </div>
 </div>
+
+<script>
+  function fakeLogin(e) {
+    e.preventDefault()
+    localStorage.setItem('isLoggedIn', 'true')
+    localStorage.setItem('userName', 'مستخدم')
+    window.location.href = 'home.html'
+  }
+</script>
 
 </body>
 </html>

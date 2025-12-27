@@ -16,16 +16,39 @@
 <div class="form-page">
   <div class="form-card">
     <h1>إنشاء حساب جديد</h1>
-    <form action="doctors.html" method="get">
-      <input type="text" placeholder="الاسم الكامل" required>
-      <input type="email" placeholder="البريد الإلكتروني" required>
-      <input type="password" placeholder="كلمة المرور" required>
-      <input type="password" placeholder="تأكيد كلمة المرور" required>
+
+    <form onsubmit="fakeRegister(event)">
+      <input type="text" id="name" placeholder="الاسم الكامل" required>
+      <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+      <input type="password" id="password" placeholder="كلمة المرور" required>
+      <input type="password" id="confirm" placeholder="تأكيد كلمة المرور" required>
       <button type="submit">إنشاء الحساب</button>
     </form>
+
     <p>لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a></p>
   </div>
 </div>
+
+<script>
+  function fakeRegister(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const password = document.getElementById('password').value;
+    const confirm = document.getElementById('confirm').value;
+
+    if (password !== confirm) {
+      alert("كلمات المرور غير متطابقة!");
+      return;
+    }
+
+    // Save fake account
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userName', name);
+
+    alert("تم إنشاء الحساب بنجاح!");
+    window.location.href = 'home.html';
+  }
+</script>
 
 </body>
 </html>

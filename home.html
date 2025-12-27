@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khatwa | الصفحة الرئيسية</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<script>
+  if (localStorage.getItem('isLoggedIn') !== 'true') {
+    window.location.href = 'login.html'
+  }
+</script>
+
+<nav class="navbar">
+  <a class="btn" href="#" onclick="logout()">تسجيل الخروج</a>
+  <h3 class="logo">Khatwa</h3>
+</nav>
+
+<header class="hero dashboard-hero">
+  <div class="hero-overlay">
+    <h1 id="welcome"></h1>
+    <p>إدارة مواعيد العلاج الطبيعي الخاصة بك بسهولة</p>
+    <a class="btn" href="doctors.html">حجز موعد جديد</a>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="stat">
+    <h3 id="upcoming-count">0</h3>
+    <p>مواعيد قادمة</p>
+  </div>
+  <div class="stat">
+    <h3 id="completed-count">0</h3>
+    <p>جلسات مكتملة</p>
+  </div>
+  <div class="stat">
+    <h3 id="last-appointment">—</h3>
+    <p>آخر موعد</p>
+  </div>
+</section>
+
+<section class="appointments">
+  <h2>مواعيدك القادمة</h2>
+
+  <div id="appointments-list" class="appointments-list">
+    <p class="empty">
+      لا يوجد مواعيد محجوزة حاليًا<br><br>
+      <a class="btn" href="doctors.html">احجز موعدك الأول</a>
+    </p>
+  </div>
+</section>
+
+<section class="quick-actions">
+  <a class="btn" href="doctors.html">حجز موعد جديد</a>
+  <a class="btn" href="#">الدعم الفني</a>
+  <a class="btn" href="#">بيانات الحساب</a>
+</section>
+
+<section class="tip">
+  <h2>نصيحة اليوم</h2>
+  <p>الالتزام بالتمارين المنزلية يسرّع التعافي بنسبة كبيرة.</p>
+</section>
+
+<footer class="footer">
+  <div class="socials">
+    <a href="#">X</a>
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+  </div>
+  <p class="designer">تصميم وتطوير: @criticar_idk</p>
+  <p>© 2025 Khatwa — جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+  const name = localStorage.getItem('userName') || 'مستخدم'
+  document.getElementById('welcome').innerText = `مرحبًا بك ${name} 👋`
+
+  const list = document.getElementById('appointments-list')
+  const appointments = JSON.parse(localStorage.getItem('appointments')) || []
+
+  if (appointments.length) {
+    list.innerHTML = ''
+    appointments.forEach(a => {
+      const div = document.createElement('div')
+      div.className = 'appointment-card'
+      div.innerHTML = `
+        <h3>${a.doctor}</h3>
+        <p>📅 ${a.date}</p>
+        <p>⏰ ${a.time}</p>
+      `
+      list.appendChild(div)
+    })
+  }
+
+  document.getElementById('upcoming-count').innerText = appointments.length
+  document.getElementById('last-appointment').innerText =
+    appointments.length ? appointments[appointments.length - 1].date : '—'
+
+  function logout() {
+    localStorage.removeItem('isLoggedIn')
+    localStorage.removeItem('userName')
+    localStorage.removeItem('appointments')
+    window.location.href = 'login.html'
+  }
+</script>
+
+</body>
+</html>
